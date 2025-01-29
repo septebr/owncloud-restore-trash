@@ -6,17 +6,19 @@ class RestoreTrash
     private $username;
     private $password;
     private $sabreService;
-    private $restoreDate;
+    private $restoreStartDate;
+    private $restoreEndDate;
     private $trashbinData;
 
-    public function __construct($uri, $username, $password, $restoreDate)
+    public function __construct($uri, $username, $password, $restoreStartDate, $restoreEndDate)
     {
         $this->trashbinData = [];
         $this->sabreService = new Sabre\Xml\Service();
         $this->uri = $uri;
         $this->username = $username;
         $this->password = $password;
-        $this->restoreDate = new DateTime($restoreDate);
+        $this->restoreStartDate = new DateTime($restoreStartDate);
+        $this->restoreEndDate = new DateTime($restoreEndDate);
     }
 
     public function run()
@@ -80,7 +82,7 @@ class RestoreTrash
             $trashbinDeleteDateTime = new DateTime($value['value'][1]['value'][0]['value'][2]['value']);
 
             //Only observe data which has been deleted after certain date
-            if ($trashbinDeleteDateTime < $this->restoreDate) {
+            if ($trashbinDeleteDateTime < $this->restoreStartDate or $trashbinDeleteDateTime > $this->restoreEndDate) {
                 continue;
             }
 
