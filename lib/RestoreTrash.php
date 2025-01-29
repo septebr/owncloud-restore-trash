@@ -82,7 +82,7 @@ class RestoreTrash
             $trashbinDeleteDateTime = new DateTime($value['value'][1]['value'][0]['value'][2]['value']);
 
             //Only observe data which has been deleted after certain date
-            if ($trashbinDeleteDateTime < $this->restoreStartDate or $trashbinDeleteDateTime > $this->restoreEndDate) {
+            if ($trashbinDeleteDateTime < $this->restoreStartDate || $trashbinDeleteDateTime > $this->restoreEndDate) {
                 continue;
             }
 
@@ -121,7 +121,7 @@ class RestoreTrash
 
             curl_close($ch);
 
-            echo(sprintf("File %s restored\n", $trashbinRecord['trashbinOriginalFilename']));
+            echo(sprintf("File %s restored\n", $trashbinRecord['trashbinOriginalLocation'].$trashbinRecord['trashbinOriginalFilename']));
         }
     }
 
