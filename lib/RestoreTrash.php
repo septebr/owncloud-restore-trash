@@ -83,7 +83,6 @@ class RestoreTrash
 
             //Only observe data which has been deleted after certain date
             if ($trashbinDeleteDateTime < $this->restoreStartDate || $trashbinDeleteDateTime > $this->restoreEndDate) {
-                var_dump($trashbinDeleteDateTime);
                 continue;
             }
 
