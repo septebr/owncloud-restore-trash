@@ -11,14 +11,16 @@ use Symfony\Component\Console\SingleCommandApplication;
     ->addOption('url', false, InputOption::VALUE_REQUIRED)
     ->addOption('username', 'u', InputOption::VALUE_REQUIRED)
     ->addOption('password', 'p', InputOption::VALUE_REQUIRED)
-    ->addOption('date', 'd', InputOption::VALUE_REQUIRED)
+    ->addOption('start_date', 'd', InputOption::VALUE_REQUIRED)
+    ->addOption('end_date', 'd', InputOption::VALUE_REQUIRED)
     ->setCode(function (InputInterface $input, OutputInterface $output) {
        $uri = $input->getOption('url');
        $username = $input->getOption('username');
        $password = $input->getOption('password');
-       $date = $input->getOption('date');
+       $start_date = $input->getOption('start_date');
+       $end_date = $input->getOption('end_date');
 
-       $r = new RestoreTrash($uri, $username, $password, $date);
+       $r = new RestoreTrash($uri, $username, $password, $start_date, $end_date);
        $r->run();
     })
     ->run();
