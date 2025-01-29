@@ -11,8 +11,8 @@ use Symfony\Component\Console\SingleCommandApplication;
     ->addOption('url', false, InputOption::VALUE_REQUIRED)
     ->addOption('username', 'u', InputOption::VALUE_REQUIRED)
     ->addOption('password', 'p', InputOption::VALUE_REQUIRED)
-    ->addOption('start_date', 'd', InputOption::VALUE_REQUIRED)
-    ->addOption('end_date', 'd', InputOption::VALUE_REQUIRED)
+    ->addOption('start_date', 'd1', InputOption::VALUE_REQUIRED)
+    ->addOption('end_date', 'd2', InputOption::VALUE_REQUIRED)
     ->setCode(function (InputInterface $input, OutputInterface $output) {
        $uri = $input->getOption('url');
        $username = $input->getOption('username');
