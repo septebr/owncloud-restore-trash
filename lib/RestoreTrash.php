@@ -121,8 +121,7 @@ class RestoreTrash
 
             curl_close($ch);
 
-            echo(sprintf("File %s restored\n", $trashbinRecord['trashbinOriginalLocation'].$trashbinRecord['trashbinOriginalFilename']));
-            var_dump($trashbinRecord);
+            echo(sprintf("File %s restored\n", $trashbinRecord['trashbinOriginalLocation']));
         }
     }
 
